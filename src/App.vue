@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="cat photo" src="./assets/lewie.jpg" />
+    <HelloWorld 
+      msg="Trying out a Vue app" 
+      subMsg="adding a prop"
+      v-bind:vueLink="vueLink"
+    />
+    <!-- <a v-bind:href="vueLink" > here is a link to vue </a> -->
   </div>
 </template>
 
@@ -12,7 +17,12 @@ export default {
   name: 'App',
   components: {
     HelloWorld
-  }
+  },
+  data: function () {
+    return {
+      vueLink: "https://vuejs.org/v2/guide/index.html"
+    }
+  }  
 }
 </script>
 
@@ -24,5 +34,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+img {
+  height: 200px;
 }
 </style>
