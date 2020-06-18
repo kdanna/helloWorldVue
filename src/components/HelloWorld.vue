@@ -1,18 +1,23 @@
 <template>
   <div v-bind:style={background:color}>
     <h3>{{ catMessage }}</h3>
+    <Details :details="catDetails"/>
     <div>
       <button v-on:click="incrementCounter">Increment the cuteness meter</button>
     </div>
     <div :class="{yell : shouldYell}">{{catName + '\'s'}} cuteness meter is at {{clickCount}} </div>
     <a v-bind:href="vueLink"> here's a link to the vue documentation </a>
-  
   </div>
 </template>
 
 <script>
+import Details from './Details.vue'
+
 export default {
   name: 'HelloWorld',
+  components: {
+    Details
+  },
   props: {
     // props passed in from parent component
     catName: String,
@@ -24,7 +29,11 @@ export default {
       // initial data values
       clickCount: 0,
       shouldYell: false,
-      color: 'aqua'
+      color: 'aqua',
+      catDetails: {
+        age: 1,
+        color: "brown and black",
+      }
     }
   },
   methods: {
