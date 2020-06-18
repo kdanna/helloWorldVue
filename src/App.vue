@@ -2,8 +2,8 @@
   <div id="app">
     <img alt="cat photo" src="./assets/lewie.jpg" />
     <HelloWorld 
-      msg="Trying out a Vue app" 
-      subMsg="adding a prop"
+      v-bind:catName="catName" 
+      subMsg="the best cat ever"
       v-bind:vueLink="vueLink"
     />
     <!-- <a v-bind:href="vueLink" > here is a link to vue </a> -->
@@ -20,7 +20,8 @@ export default {
   },
   data: function () {
     return {
-      vueLink: "https://vuejs.org/v2/guide/index.html"
+      vueLink: "https://vuejs.org/v2/guide/index.html",
+      catName: "Lewie"
     }
   }  
 }

@@ -1,12 +1,13 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h3>{{ subMsg }}</h3>
-    <a v-bind:href="vueLink"> here's a link to documentation </a>
+  <div 
+    v-bind:style={background:color}>
+    <h3>{{ catName }}</h3>
+    <p>{{ subMsg }}</p>
     <div>
-      <button v-on:click="incrementCounter">Test on click handler</button>
+      <button v-on:click="incrementCounter">Increment the cuteness meter</button>
     </div>
-    <div>Test button clicks {{clickCount}} </div>
+    <div :class="{yell : shouldYell}">{{catName + '\'s'}} cuteness meter is at {{clickCount}} </div>
+    <a v-bind:href="vueLink"> here's a link to the vue documentation </a>
   
   </div>
 </template>
@@ -15,21 +16,30 @@
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String,
+    // props passed in from parent component
+    catName: String,
     subMsg: String,
     vueLink: String,
   },
   data: function () {
     return {
+      // initial data values
       clickCount: 0,
+      shouldYell: false,
+      color: 'aqua'
     }
   },
   methods: {
     incrementCounter: function () {
         this.clickCount += 1
+        if(this.clickCount >= 10){
+          this.shouldYell = true
+        }
+        this.color == 'red' ? this.color = 'aqua' : this.color = 'red'
     }
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -47,5 +57,12 @@ li {
 }
 a {
   color: #42b983;
+}
+.background {
+  background-color:aqua
+}
+.yell {
+  font-size: 25px;
+  font-weight: bolder;
 }
 </style>
