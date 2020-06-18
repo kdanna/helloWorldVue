@@ -31,8 +31,9 @@ export default {
       shouldYell: false,
       color: 'aqua',
       catDetails: {
+        id: 1,
         age: 1,
-        color: "brown and black",
+        color: ["brown", "black", "tan"],
       }
     }
   },

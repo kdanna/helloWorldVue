@@ -1,7 +1,8 @@
 <template>
     <div>
-        <div v-for="(detail, index) in details" :key="index">
-            <li>{{detail}}</li>
+        <div> he is {{details.age}} year old</div>
+        <div v-for="(color, index) in details.color" :key="index">
+            <p>{{color}}</p>
         </div>
     </div>
 </template>
