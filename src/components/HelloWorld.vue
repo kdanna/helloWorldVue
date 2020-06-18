@@ -1,8 +1,6 @@
 <template>
-  <div 
-    v-bind:style={background:color}>
-    <h3>{{ catName }}</h3>
-    <p>{{ subMsg }}</p>
+  <div v-bind:style={background:color}>
+    <h3>{{ catMessage }}</h3>
     <div>
       <button v-on:click="incrementCounter">Increment the cuteness meter</button>
     </div>
@@ -37,8 +35,13 @@ export default {
         }
         this.color == 'red' ? this.color = 'aqua' : this.color = 'red'
     }
+  }, 
+  computed: {
+    catMessage() {
+      return this.catName + ' ' + this.subMsg
+    } 
   }
-}
+} 
 
 </script>
 
